@@ -83,6 +83,7 @@ The implementation of the above algorithm was done in a function called `ddpg`. 
 
 To see the performance increase of our agent we track the score for all episodes he is playing. This scores are the return values of the `ddpg` function.
 
+
 ### Learning Curve
 
 ![Learning Curve](learning_curve.png)
@@ -132,7 +133,7 @@ The neural network which learns to approximate the action-value function consist
 
 * Play around with the parameters and the network architectures to see what the 'minimal' DDPG configuration is which solves this environment. This is especially interesting because before adding batch normalization the learning would not take off and it would be good to know whether by tuning the parameters or changing the DNNs the agent could solve the environment also without batch normalization.
 
-* Try to solve the version of the environment with 20 agents but by using either A3C, A2C, or [D4PG](http://arxiv.org/abs/1804.08617).
+* Try to solve the version of the environment with 20 agents but by using either A3C, A2C, or [D4PG](http://arxiv.org/abs/1804.08617). This would be especially interesting because for the ddpg-agent we could reuse the code from the [pendulum](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum) and [bipedalWalker](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) solutions. However, if we would use a different approach that wouldn't be the case anymore.
 
 * Go beyond the reacher environment and try to solve the Crawler environment.
 
