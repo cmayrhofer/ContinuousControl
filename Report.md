@@ -30,20 +30,30 @@ Initialize replay memory $D$ to capacity ReplayBufferSize
 
 **For** episode=1, MaxEpisodes **do**
 >  Initialize/reset environment and get first state $s_1$
+>
 > Initialize a random process (noise) $\mathcal N$ for action exploration
 >
 > **For** t=1, T **do**
 >> Select action $a_t = \mu(s_t|\theta^\mu) + \mathcal N_t$ according to the current policy and exploration noise
+>>
 >> Execute action $a_t$ and observe reward $r_t$ and observe new state $s_{t+1}$
+>>
 >> Store transition $(s_t,\, a_t,\, r_t,\, s_{t+1})$ in $D$
+>>
 >> Sample a random minibatch of $N$ transitions $(s_i,\,a_i,\,r_i,\,s_{i+1})$ from $D$
+>>
 >> Set $y_i = r_i + \gamma\, \hat Q(s_{i+1},\,\hat \mu(s_{i+1}|\theta^{\hat\mu})| \theta^{\hat Q})
+>>
 >> Update critic by minimizing the loss: $L = \tfrac1N\sum_i(y_i - Q(s_i,\, a_i|\theta^Q))^2
+>>
 >> Update the actor policy using the sampled policy gradient:
+>>
 >> $$ \nabla_{\theta^\mu} J \approx \frac1N \sum_i\nabla_a Q(s,\,a|\theta^Q)|_{s=s_i,\,a=\mu(s_i)}\nabla_{\theta^\mu}\mu(s|\theta^\mu)|_{s_i}$$
 >> 
 >> Update the target networks (soft update):
+>>
 >> $$ \theta^{\hat Q} \leftarrow \tau \theta^Q + (1 - \tau)\theta^{\hat Q} $$
+>>
 >> $$ \theta^{\hat \mu} \leftarrow \tau \theta^\mu + (1 - \tau)\theta^{\hat\mu}$$
 >>
 > **End For**
@@ -57,6 +67,7 @@ The following table summarizes the values for all the parameters which are used 
 | 100000           | 128     | 0.99 |      0.0002        |      0.0002        |0.001|1000 | 0.0001 |
 
 For the exploratory noise the parameters were:
+
 | $\mu$ | $\theta$ | $\sigma$ |
 |-------|----------|----------|
 |0.     |   0.15   |    0.1   | 
