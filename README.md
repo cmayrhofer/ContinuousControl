@@ -20,7 +20,7 @@ Furthermore, the repository contains also the saved weights of a trained actor a
 
 As the above GIF-animation adumbrates, the agent has to move the end of his double-joined arm into the goal location, and keep it there. The task is episodic and we set the maximal amount of steps 10000 per episode.
 
-* _`States`_: the state space is 26 dimensional and consists out of position, rotation, velocity, and angular velocities of the two arm Rigidbodies.;
+* _`States`_: the state space is 26 dimensional and consists out of position, rotation, velocity, and angular velocities of the two arm Rigidbodies;
 * _`Actions`_: the agent's action space is (continuous) 4 dimensional and corresponds to torque applicable to the two joints;
 * _`Reward`_: the agent obtains a reward of $+0.1$ if the agent's hand is in the goal location, and $0$ else.
 

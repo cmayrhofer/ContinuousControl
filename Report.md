@@ -2,8 +2,8 @@
 -------------
 
 In the following we provide a detailed write up of the solution of the _single reacher_.
-We have implemented a ddpg-agent, i.e. deep deep deterministic policy gradient agent, similar to the one outlined and implemented in [Lillicrap, Hunt, et. al.](http://arxiv.org/abs/1509.02971).
-The idea behind DDPG is to leverage the  successful ideas behind deep q-learning networks DQN [Mnih, Kavukcuoglu, Silver, et. al.](http://www.nature.com/articles/nature14236) to problems with a continuous action space. The problem with the pure DQN approach and continuous action spaces is that one would need at (almost) all steps an optimization process which is computationally not feasible.
+We have implemented a ddpg-agent, i.e. deep deterministic policy gradient agent, similar to the one outlined and implemented in [Lillicrap, Hunt, et. al.](http://arxiv.org/abs/1509.02971).
+The idea behind DDPG is to leverage the  successful ideas behind deep q-learning networks DQN [Mnih, Kavukcuoglu, Silver, et. al.](http://www.nature.com/articles/nature14236) to problems with continuous action spaces. The problem with the pure DQN approach and continuous action spaces is that one would need at (almost) all steps an optimization process which is computationally not feasible.
 To circumvent this problem, an additional neural network is introduced, i.e. the actor, which learns to approximate optimal action directly. The Q-network is still of importance because it serves as a guidance, i.e. a critic, for the updates of the policy (actor) network.
 
 As the authors of the DDPG paper mentioned the following two key features of the DQN approach are still crucial:
@@ -14,7 +14,7 @@ In addition to those the authors of DDPG add:
 * batch normalization [Ioffe and Szegedy](http://arxiv.org/abs/1502.03167).
 
 Next, we describe in detail how the learning is done and implemented
-in our dqn agent.
+in our ddpg agent.
 
 ## The Learning Algorithm
 
