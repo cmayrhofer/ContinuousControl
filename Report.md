@@ -81,7 +81,7 @@ The implementation of the above algorithm was done in a function called `ddpg`. 
 * The `Agent` class has the functions: `step`, `act`, `learn`, and `soft_update` where `act` gives $a_t$ and `step` calls, as in the order of the pseudocode,  `add`, `sample`, `learn`, and `soft_update`.
 
 
-To see the performance increase of our agent we track the score for all episodes he is playing. This scores are the return values of the `ddpg` function.
+To see the performance increase of our agent we track the scores for all episodes it is playing. These scores are the return values of the `ddpg` function.
 
 
 ### Learning Curve
